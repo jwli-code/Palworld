@@ -1,11 +1,11 @@
-"""
-Author: jwli && lnzhang
-Institution: Huazhong Agricultural University
-Description: Pipeline from downloading SRA data to calculating gene expression.
-"""
-
-1.list.txt         A list of all SRA numbers
-2.single.list      A list of all single-ended sequencing SRA numbers
-3.Prepare the fa and gtf files to build indexes into the genome
-4.sh run split.sh
-5.sh run_pipeline.sh
+"""<br>
+Author: jwli && lnzhang<br>
+Institution: Huazhong Agricultural University<br>
+Description: Pipeline from downloading SRA data to calculating gene expression.<br>
+"""<br>
+<br>
+1.list.txt         A list of all SRA numbers<br>
+2.single.list      A list of all single-ended sequencing SRA numbers<br>
+3.Prepare the fa and gtf files to build indexes into the genome<br>
+4.sh run split.sh<br>
+5.sh run_pipeline.sh<br>
