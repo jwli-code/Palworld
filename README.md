@@ -1,4 +1,2 @@
-Welcome to Yang's Palu world
+<h2>Welcome to Yang's Palu world<h2>
 
-
-![img](https://github.com/jwli-code/Paulworld/blob/main/img/Bol_expression.png)
