@@ -8,4 +8,4 @@ Description: It is used to show that pan gene and core gene tend to stabilize as
 
 Bol PanGenomeData is the output file of pan-GP. <br>
 
-![image](https://github.com/jwli-code/Paulworld/blob/main/img/home1.png.png)
+[![image]([https://github.com/jwli-code/Paulworld/blob/main/img/home1.png.png](https://github.com/jwli-code/Paulworld/blob/main/pan-genome/Gene%20cluster/Core-pan/Bna-pan-core.png))](https://github.com/jwli-code/Paulworld/blob/main/pan-genome/Gene%20cluster/Core-pan/Bna-pan-core.png)https://github.com/jwli-code/Paulworld/blob/main/pan-genome/Gene%20cluster/Core-pan/Bna-pan-core.png
