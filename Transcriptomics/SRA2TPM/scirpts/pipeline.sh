@@ -19,7 +19,7 @@ do
 		#gzip $raw_dir/$sra/*
 		if grep -q "^${sra}$" "$SINGLE_LIST"; then
 				fastp -i ${raw_dir}/${sra}/${sra}.fastq -o ${clean_dir}/${sra}/${sra}.clean.fastq.gz -w $cpu -j logs/${sra}.json -h logs/${sra}.html
-				sh $wk/hisat2_single.sh $ref $gtf ${clean_dir}/${sra}/${sra}_1.clean.fastq.gz $cpu $sra 1>logs/${sra}.out 2>logs/${sra}.err
+				sh $wk/hisat2_single.sh $ref $gtf ${clean_dir}/${sra}/${sra}.clean.fastq.gz $cpu $sra 1>logs/${sra}.out 2>logs/${sra}.err
         else
 				fastp -i ${raw_dir}/${sra}/${sra}_1.fastq -I ${raw_dir}/${sra}/${sra}_2.fastq -w $cpu -o ${clean_dir}/${sra}/${sra}_1.clean.fastq.gz -O ${clean_dir}/${sra}/${sra}_2.clean.fastq.gz -j logs/${sra}.json -h logs/${sra}.html
                 sh $wk/hisat2.sh $ref $gtf ${clean_dir}/${sra}/${sra}_1.clean.fastq.gz ${clean_dir}/${sra}/${sra}_2.clean.fastq.gz $cpu $sra 1>logs/${sra}.out 2>logs/${sra}.err 
