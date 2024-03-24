@@ -1,0 +1,60 @@
+library(ggplot2)
+library(cowplot)
+install.packages("cowplot")
+# 物种数和基因簇数量的数据
+species <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14)
+#gene_clusters <- c(6238, 11617, 5783, 3593, 2630, 2367, 2045, 2199, 2303, 2576, 2994, 3938, 6868, 25257)
+gene_clusters <- c(5601, 14933, 7388, 4707, 3335, 2816, 2543, 2531, 2677, 3003, 3502, 5038, 8874, 26828)
+
+# 使用更柔和的颜色方案
+soft_colors <- c("Private" = "#8597cc", "Dispensable" = "#2197c1", "Softcore" = "#e5cc91", "Core" = "#bd924d")
+
+# 创建颜色向量，为柱状图指定类别颜色
+species_color <- c(rep("#8597cc", 1), rep("#2197c1", 10), rep("#e5cc91", 2), rep("#bd924d", 1))
+
+# 绘制条形图
+bar_plot <- ggplot() +
+  geom_bar(aes(x = species, y = gene_clusters, fill = species_color), stat = "identity") +
+  scale_fill_identity() +
+  labs(x = "Genome Number", y = "Gene Cluster Number (K)") +
+  theme_minimal() +
+  theme(panel.grid = element_blank(),
+        legend.position = "none",
+        axis.text.x = element_text(angle = 0,size = 14),
+        axis.line = element_line(color = "black", size = 1),  # 横轴和纵轴线加粗
+        axis.title.y = element_text(margin = margin(t = 0, r = 10, b = 0, l = 0),size=20),  # 调整纵轴标题位置
+        axis.text.y = element_text(size = 14),  # 调整纵轴刻度文字大小
+        axis.ticks.y = element_line(size = 1),  # 调整纵轴刻度线粗细
+        axis.ticks.x = element_line(size = 1),  # 调整纵轴刻度线粗细
+        axis.title.x = element_text(size = 20),
+        plot.margin = margin(10, 10, 10, 10, "pt")) +  # 调整图形边距
+        scale_y_continuous(labels = function(x) x / 1000, breaks = function(x) pretty(x / 1000, n = 10) * 1000) + # 将纵坐标刻度除以1000并确保刻度线完整显示
+  scale_x_continuous(breaks = species) # 使用scale_x_continuous确保每个species值都有刻度线
+
+# 基因簇类型和数量的数据
+gene_cluster_type <- c("Core", "Softcore", "Dispensable", "Private")
+type_counts <- c(26828, 13912, 47435, 5601)
+
+# 绘制饼图
+pie_data <- data.frame(Type = gene_cluster_type, Count = type_counts)
+pie_plot <- ggplot(pie_data, aes(x = "", y = Count, fill = Type)) +
+  geom_bar(width = 1, stat = "identity") +
+  coord_polar("y", start = 0) +
+  scale_fill_manual(values = soft_colors) +
+  theme_void() +
+  theme(legend.position = "none") +
+  geom_text(aes(label = sprintf("%s\n%d\n(%.1f%%)", Type, Count, Count / sum(type_counts) * 100)),
+            position = position_stack(vjust = 0.2))
+
+# 使用cowplot库的ggdraw和draw_plot函数来组合图形
+# 这里我们调整了饼图的位置和大小
+combined_plot <- ggdraw() +
+  draw_plot(bar_plot, 0, 0, 1, 1) +
+  draw_plot(pie_plot, 0.3, 0.4, 0.4, 0.65) # 根据需要调整这些值
+
+combined_plot
+# 保存或打印组合图
+ggsave("combined_plot.png", combined_plot, width = 12, height = 6, dpi = 300)
+ggsave("bar_plot.pdf", plot = combined_plot, device = "pdf", width = 12, height = 6, bg = "white")
+# 或者直接打印到RStudio的Viewer
+print(combined_plot)
