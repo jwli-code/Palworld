@@ -13,7 +13,6 @@ Description: Pipeline from downloading SRA data to calculating gene expression.<
 
 <br>
 <h4>Filter representative data from a large number of RNAseq data according to the greedy algorithm</h4> <br>
-<br>
 Example:
 <br>
 python expression_to_num.py Bju.tpm.txt Bju.tpm.txt2
