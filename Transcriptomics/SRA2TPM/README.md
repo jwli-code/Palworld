@@ -10,3 +10,6 @@ hisat2 + stringtie <br>
 3.Prepare the fa and gtf files to build indexes into the genome<br>
 4.sh run split.sh<br>
 5.sh run_pipeline.sh<br>
+
+<br>
+<h4>Find the most representative RNAseq data from the RNA library</h4>
