@@ -3,7 +3,7 @@ Author: jwli && lnzhang<br>
 Institution: Huazhong Agricultural University<br>
 Description: Pipeline from downloading SRA data to calculating gene expression.<br>
 """<br>
-hisat2 + stringtie <br>
+<h4>hisat2 + stringtie</h4> <br>
 <br>
 1.list.txt         A list of all SRA numbers<br>
 2.single.list      A list of all single-ended sequencing SRA numbers<br>
