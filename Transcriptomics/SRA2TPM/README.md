@@ -12,4 +12,10 @@ Description: Pipeline from downloading SRA data to calculating gene expression.<
 5.sh run_pipeline.sh<br>
 
 <br>
-<h4>Find the most representative RNAseq data from the RNA library</h4>
+<h4>Filter representative data from a large number of RNAseq data according to the greedy algorithm</h4> <br>
+<br>
+Example:
+<br>
+python expression_to_num.py Bju.tpm.txt Bju.tpm.txt2
+<br>
+python find_represent_SRA.py Bju.tpm.txt2 Bju_represent_50.txt 50
