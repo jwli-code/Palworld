@@ -17,7 +17,8 @@ do
 		prefetch.3.1.0 ${sra} --output-directory $sra_dir --max-size 500G
 		fasterq-dump.3.1.0 -e $cpu -3 $sra_dir/$sra/${sra}.sra -O $raw_dir/$sra/ -t $raw_dir/$sra/ 
 		#gzip $raw_dir/$sra/*
-		if grep -q "^${sra}$" "$SINGLE_LIST"; then
+		#if grep -q "^${sra}$" "$SINGLE_LIST"; then
+  		if [[ ! -f ${raw_dir}/${sra}/${sra}_1.fastq || ! -f ${raw_dir}/${sra}/${sra}_2.fastq ]]; then
 				fastp -i ${raw_dir}/${sra}/${sra}.fastq -o ${clean_dir}/${sra}/${sra}.clean.fastq.gz -w $cpu -j logs/${sra}.json -h logs/${sra}.html
 				sh $wk/hisat2_single.sh $ref $gtf ${clean_dir}/${sra}/${sra}.clean.fastq.gz $cpu $sra 1>logs/${sra}.out 2>logs/${sra}.err
         else
