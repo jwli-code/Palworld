@@ -11,10 +11,13 @@ Description: Pipeline from downloading SRA data to calculating gene expression.<
 4.sh run split.sh<br>
 5.sh run_pipeline.sh<br>
 
+<h4>Combined expression results</h4>
+<br>
+python merge_expression.py /public/home/jyxiao/jwli/Bca/119.list Bca.tpm.txt
 <br>
 <h4>Filter representative data from a large number of RNAseq data according to the greedy algorithm</h4> <br>
 Example:
 <br>
-python expression_to_num.py Bju.tpm.txt Bju.tpm.txt2
+python expression_to_num.py Bca.tpm.txt 1 Bca.tpm.txt2
 <br>
-python find_represent_SRA.py Bju.tpm.txt2 Bju_represent_50.txt 50
+python find_represent_SRA.py Bca.tpm.txt2 Bca_represent_50.txt 50
