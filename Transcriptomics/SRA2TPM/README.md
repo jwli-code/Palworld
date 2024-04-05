@@ -10,7 +10,7 @@ Description: Pipeline from downloading SRA data to calculating gene expression.<
 3.Prepare the fa and gtf files to build indexes into the genome<br>
 4.sh run split.sh<br>
 5.sh run_pipeline.sh<br>
-<h4>Combined expression results</h4>
+<h4>Put the tab file in a folder,then Combined expression results</h4>
 <br>
 python merge_expression.py /public/home/jyxiao/jwli/Bca/119.list Bca.tpm.txt
 <br>
