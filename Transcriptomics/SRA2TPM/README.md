@@ -20,3 +20,5 @@ Example:
 python expression_to_num.py Bca.tpm.txt 1 Bca.tpm.txt2
 <br>
 python find_represent_SRA.py Bca.tpm.txt2 Bca_represent_50.txt 50
+<h4>Note:<h4>
+Software versions of hisat==2.2.0 May report an error with reads less than 20 in length, so remove hisat2_read_statistics.py and run
