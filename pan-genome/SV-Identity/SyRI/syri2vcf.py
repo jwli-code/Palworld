@@ -3,7 +3,7 @@ import argparse
 def write_vcf_header(vcf_file, ref_fasta,name):
     """Writes the VCF header and contig information based on the reference FASTA."""
     vcf_file.write("##fileformat=VCFv4.2\n")
-    vcf_file.write("##source=Assemblytics\n")
+    vcf_file.write("##source=Syri\n")
     for contig, sequence in ref_fasta.items():
         vcf_file.write(f"##contig=<ID={contig},length={len(sequence)}>\n")
     vcf_file.write('##INFO=<ID=SVTYPE,Number=1,Type=String,Description="Type of the SV.">\n')
