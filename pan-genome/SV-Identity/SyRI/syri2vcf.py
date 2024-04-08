@@ -51,7 +51,7 @@ def bed_to_vcf_line(fields, ref_fasta, query_fasta, max_len, name):
     svlen = abs(len(alt_seq) - len(ref_seq))  # Calculate SV length
     if svlen > max_len:
         return None
-    if svlen < 50:
+    if svlen <= 50:
         return None
     # Construct INFO field with SVTYPE and SVLEN
     info_field = f"SVTYPE={sv_type};SVLEN={svlen}"
