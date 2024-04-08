@@ -53,6 +53,11 @@ def bed_to_vcf_line(fields, ref_fasta, query_fasta, max_len, name):
         return None
     if svlen <= 50:
         return None
+    # Adjust sv_type if necessary
+    if sv_type == "CPG":
+        sv_type = "INS"
+    elif sv_type == "CPL":
+        sv_type = "DEL"
     # Construct INFO field with SVTYPE and SVLEN
     info_field = f"SVTYPE={sv_type};SVLEN={svlen}"
     ID=f"{name}_{ref_chr}_{ref_start}"
