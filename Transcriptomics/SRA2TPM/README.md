@@ -13,6 +13,7 @@ Description: Pipeline from downloading SRA data to calculating gene expression.<
 <h4>Put the tab file in a folder,then Combined expression results</h4>
 <br>
 python merge_expression.py /public/home/jyxiao/jwli/Bca/119.list Bca.tpm.txt
+#run_merge_large_tpm.sh
 <br>
 <h4>Filter representative data from a large number of RNAseq data according to the greedy algorithm</h4> <br>
 Example:
