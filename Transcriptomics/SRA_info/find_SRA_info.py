@@ -5,7 +5,7 @@ Location: Huazhong Agricultural University
 Description: This script reads SRA numbers from a text file, retrieves Biosample information from the NCBI website,
 and writes the information to an output file, sra_info.txt, with each piece of information separated by tabs.
 """
-
+import sys
 import requests
 import re
 from bs4 import BeautifulSoup
@@ -81,6 +81,7 @@ def get_biosample_information(sra_numbers, output_file):
                     time.sleep(2)
 
 if __name__ == "__main__":
-    txt_filename = 'sra_numbers.txt'
+    txt_filename = sys.argv[1]
+    output_filename = sys.argv[2]
     sra_numbers = read_sra_numbers_from_txt(txt_filename)
-    get_biosample_information(sra_numbers, 'sra_info.txt')
+    get_biosample_information(sra_numbers, output_filename)
