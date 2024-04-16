@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# @Author: jwli.
+# @Date  : 2024/04/16
 # 设置时间戳，用于文件命名
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
 
