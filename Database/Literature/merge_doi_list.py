@@ -1,5 +1,5 @@
-
-# merge_doi_lists.py
+# @Author: jwli.
+# @Date  : 2024/04/16
 import sys
 
 old_doi_file = sys.argv[1]
