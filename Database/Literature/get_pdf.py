@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*- 
+# @Author: jwli.
+# @Date  : 2024/6/11
+# version: Python 3.10.0
 import requests
 from bs4 import BeautifulSoup
 import os
