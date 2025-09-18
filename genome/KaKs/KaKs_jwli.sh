@@ -136,7 +136,7 @@ process_pair() {
 
         # 使用Gblocks结果生成新的AXT文件
         echo "${gene1}_${gene2}" > "${prefix}.axt"
-        grep -v "^>" "${prefix}.cds.aln.gb" | grep -v "^$" | grep -v "^-*$" >> "${prefix}.axt"
+        grep -v "^>" "${prefix}.cds.aln.gb" | grep -v "^$" | grep -v "^-*$" |sed 's/ //g' >> "${prefix}.axt"
 
         # 第二次KaKs计算
         method="Gblocks"
